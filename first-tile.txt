@@ -1,3 +1,0 @@
-
-aws_secret_access_key = 26oo!8597jjelwa
-
