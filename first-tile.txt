@@ -1,13 +1,5 @@
 12
 345
 ABC
-string = 57A420349D91AE0CA23732DD3A4B2889
+string = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 
-# 1. Fake AWS Secret Access Key (Gitleaks will instantly catch this)
-aws_secret_access_key = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
-
-# 2. Fake Slack Token
-slack_token = xoxb-123456789012-1234567890123-abcdefghijklmnopqrstuvwx
-
-# 3. Explicit Generic Password
-db_password = "MySuperSecretPassword123!"
