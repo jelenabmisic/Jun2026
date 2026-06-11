@@ -1,9 +1,11 @@
 [extend]
-useDefault = true # Keeps all standard rules active
+useDefault = true
 
 [[rules]]
-id = "custom-generic-password"
-description = "Detect generic passwords containing special characters"
-regex = '''(?i)(password|passwd|pwd)\s*=\s*(\S{8,100})'''
-secretGroup = 2
-keywords = ["password", "passwd", "pwd"]
+id = "raw-hex-secret"
+description = "Catches raw high-entropy hex strings even without keywords"
+# Matches any standalone 64-character hex string bounded by spaces or line breaks
+regex = '(?:\s|^)([A-Fa-f0-9]{64})(?:\s|$)' 
+# We apply an entropy threshold. 0.0 is pure repetition (aaaa), 8.0 is total randomness.
+secretGroup = 1
+entropy = 3.5
