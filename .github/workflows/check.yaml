@@ -1,12 +1,16 @@
 name: Gitleaks Secret Scanner
 
-on:
-  push:
-    branches: [ "main", "master" ]
-  pull_request:
-    branches: [ "main", "master" ]
-  workflow_dispatch: # Allows you to run the scan manually from the Actions tab
 
+on:
+  # Trigger 1: Scans 'dev' every time code is pushed directly to it
+  push:
+    branches:
+      - dev
+
+  # Trigger 2: Scans when a PR is opened/updated to merge into 'main'
+  pull_request:
+    branches:
+      - main
 jobs:
   scan:
     name: Gitleaks Scan
