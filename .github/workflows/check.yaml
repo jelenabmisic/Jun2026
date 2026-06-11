@@ -2,9 +2,9 @@ name: Gitleaks Secret Scanner
 
 on:
   push:
-    branches: [ "main", "master" ]
+    branches: [ "dev" ]
   pull_request:
-    branches: [ "main", "master" ]
+    branches: [ "dev" ]
   workflow_dispatch: # Allows you to run the scan manually from the Actions tab
 
 jobs:
