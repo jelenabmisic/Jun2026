@@ -1,25 +1,18 @@
-name: Secret Scanning
-
 on:
   push:
-    branches: [main, master]
+    branches:
+      - main
   pull_request:
 
 jobs:
-  trufflehog:
-    name: TruffleHog Scan
+  test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          # Crucial: TruffleHog needs the full git history to scan deep commit chains
-          fetch-depth: 0 
-
-      - name: Run TruffleHog OSS
-        uses: trufflesecurity/trufflehog@main
-        with:
-          base: ${{ github.event.repository.default_branch }}
-          head: HEAD
-          # Highly Recommended: Reduces false positives by checking if keys are active
-          extra_args: --only-verified
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    - name: Secret Scanning
+      uses: trufflesecurity/trufflehog@main
+      with:
+        extra_args: --results=verified,unknown
