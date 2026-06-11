@@ -5,7 +5,7 @@ on:
   # Trigger 1: Scans 'dev' every time code is pushed directly to it
   push:
     branches:
-      - dev
+      - main
 
   # Trigger 2: Scans when a PR is opened/updated to merge into 'main'
   pull_request:
